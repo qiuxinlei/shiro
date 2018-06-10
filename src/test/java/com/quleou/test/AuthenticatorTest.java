@@ -40,11 +40,13 @@ public class AuthenticatorTest {
         System.out.println(principals.asList().size());
         Assert.assertEquals(2, principals.asList().size());
     }
+
     @Test(expected = UnknownAccountException.class)
     public void testAllSuccessfulStrategyWithFail() {
         login("classpath:shiro-authenticator-all-fail.ini");
         Subject subject = SecurityUtils.getSubject();
     }
+
     // 至少一个成功策略
     @Test
     public void testAtLeastOneSuccessfulStrategyWithSuccess() {
